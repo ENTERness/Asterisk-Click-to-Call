@@ -1,7 +1,5 @@
 <?php
 
-  ## AUTHOR: Alisson Pelizaro (alissonpelizaro@hotmail.com)
-
   // Replace with your server settings if not using the default.
   // If unsure check /etc/asterisk/manager.conf under [general];
   $ipServer = "172.0.0.1";
@@ -16,7 +14,7 @@
   $internalPhoneline = "1003";
   $ws = false; //Set 'true' if you use WebSocket protocol transport in your Asterisk Server
   // Context for outbound calls. See /etc/asterisk/extensions.conf if unsure.
-  $context = '1-GRam-Grupo_1';
+  $context = 'context';
 
   //Starting script
   if($ws){
@@ -48,7 +46,7 @@
               // Prepare originate request
               $originateRequest = "Action: Originate\r\n";
               $originateRequest .= "Channel: SIP/$internalPhoneline\r\n";
-              $originateRequest .= "Callerid: Alisson\r\n";
+              $originateRequest .= "Callerid: name\r\n";
               $originateRequest .= "Exten: $target\r\n";
               $originateRequest .= "Context: $context\r\n";
               $originateRequest .= "Priority: 0\r\n";
